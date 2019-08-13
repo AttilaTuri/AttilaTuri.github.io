@@ -102,9 +102,9 @@ body, html {
   margin: auto;
   margin-top: 1vw;
   font-size: 1.35vw;
-  color: #f3f1ef;
+  color: white;
   text-align: left;
-  text-shadow: 2px 2px 2px rgba(99, 99, 99, 1);
+  text-shadow: 0 0 1vw black;
 }
 
 .description p {
@@ -167,8 +167,23 @@ p {
   position: relative;
 }
 
+.about .container {
+  height: 80%;
+  transform: translate(0, 20%);
+}
+
+.about .container .title {
+  margin-bottom: 1vw;
+  color: lime;
+  text-shadow: 0 0 0.5vw #035900;
+}
+
 .about .container .description {
   width: 80%;
+  color: #bcf7ee;
+  font-weight: bold;
+  font-size: 1.5vw;
+  text-shadow: 0 0 0.5vw black;
 }
 
 .contact {

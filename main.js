@@ -3,6 +3,18 @@ var stickyHeaderTop = 0;
 $(document).ready(function() {
   stickyHeaderTop = $('.header').offset().top;
 
+  $('.contact-form').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url: 'https://woodcraft.hu/priv-attila',
+        type: 'post',
+        data: $('.contact-form').serialize(),
+        success: function() {
+
+        }
+    });
+  });
+
   $("body").scroll(function(e) {
     var val = $("body").scrollTop();
     if (val > stickyHeaderTop + 50) {
@@ -15,7 +27,6 @@ $(document).ready(function() {
       $('.logo').removeClass('logo-show');
     }
 
-console.log($("#about").offset().top);
     if ($("#about").offset().top <= 0) {
       $('body, html').css({
         'background-image': 'url("img/bg2.jpg")'
@@ -41,8 +52,14 @@ console.log($("#about").offset().top);
 
   $("button").click(function() {
     var btn = $(this);
-    var bb = $(btn.attr('href'));
+    var bb = btn.attr('href');
+    var value = bb.split(' ');
+    var s = 0;
+    $.each(value, function(i, val) {
+      s += $(val).height();
+    });
+    console.log(s);
     $('body').animate({
-      scrollTop: $('.main').height()}, 'slow');
+      scrollTop: s}, 'slow');
   });
 });
